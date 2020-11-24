@@ -13,14 +13,11 @@ function App() {
         "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events"
       );
       const { events } = await res.json();
-
       setEventData(events);
       setLoading(false);
     };
 
     fetchEvents();
-
-    console.log(eventData);
   }, []);
 
   return <div>{!loading ? <Map eventData={eventData} /> : <Loader />}</div>;
